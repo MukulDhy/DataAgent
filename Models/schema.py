@@ -41,3 +41,8 @@ class AgentSchema(BaseModel):
     )
     
     final_answer : str = Field(...,description ="The Final answer gernated by the agent based on sql.")
+
+
+class JudgeSchema(BaseModel):
+    answer : Literal["Yes","No"] = Field(..., description="Indicates whether the generated SQL query is safe to execute or not")
+    comments : str = Field(..., description="Additional comments or feedback from the judge regarding the SQL query")

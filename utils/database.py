@@ -83,15 +83,18 @@ class DatabaseUtil:
                 connection.close()
         
         
-obj = DatabaseUtil({
-    "host": os.environ['host'],
-    "port": int(os.environ['port']),
-    "database": os.environ['database'],
-    "user": os.environ['user'],
-    "password": os.environ['password'],
-})
+def getSchemaDetails() -> str:
+    
+    obj = DatabaseUtil({
+        "host": os.environ['host'],
+        "port": int(os.environ['port']),
+        "database": os.environ['database'],
+        "user": os.environ['user'],
+        "password": os.environ['password'],
+    })
 
-result = obj.schema_details("public")
-
-with open("test_schema_details.txt", "w") as f:
-    f.write(result)
+    result = obj.schema_details("public")
+    return result;
+    # with open("test_schema_details.txt", "w") as f:
+    #     f.write(result)
+    
