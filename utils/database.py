@@ -97,4 +97,15 @@ def getSchemaDetails() -> str:
     return result;
     # with open("test_schema_details.txt", "w") as f:
     #     f.write(result)
+
+def getDatabaseObject() -> DatabaseUtil:
+    obj = DatabaseUtil({
+        "host": os.environ['host'],
+        "port": int(os.environ['port']),
+        "database": os.environ['database'],
+        "user": os.environ['user'],
+        "password": os.environ['password'],
+    })
+    
+    return obj;
     
